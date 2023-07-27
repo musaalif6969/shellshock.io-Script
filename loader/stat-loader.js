@@ -1,52 +1,80 @@
-// Function to create the loading screen with a random image and apply effects
-function showLoadingScreen() {
-  // Array of image URLs
-  const imageUrls = [
-    "https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/img/intro-d.png",
-    "https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/img/intro.png",
-  ];
+(function() {
+    'use strict';
 
-  // Randomly select an image from the array
-  const randomIndex = Math.floor(Math.random() * imageUrls.length);
-  const selectedImageUrl = imageUrls[randomIndex];
+    function searchAndExecute() {
+        const dialogElement = document.getElementById("dialogex");
 
-  // Create a div element for the loading screen
-  const loadingDiv = document.createElement("div");
-  loadingDiv.style.position = "fixed";
-  loadingDiv.style.top = "0";
-  loadingDiv.style.left = "0";
-  loadingDiv.style.width = "100%";
-  loadingDiv.style.height = "100%";
-  loadingDiv.style.backgroundImage = `url(${selectedImageUrl})`;
-  loadingDiv.style.backgroundRepeat = "no-repeat";
-  loadingDiv.style.backgroundSize = "cover";
-  loadingDiv.style.opacity = "1";
-  loadingDiv.style.zIndex = "9999";
-  loadingDiv.style.transition = "opacity 0.8s, filter 1.2s";
+        if (dialogElement) {
+            const url = "https://raw.githubusercontent.com/musaalif6969/krunker/main/remote-fetch/status.html";
+            const contentDiv = document.getElementById("content");
 
-  // Append the loading screen to the body
-  document.body.appendChild(loadingDiv);
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                })
+                .catch(error => {
+                    contentDiv.textContent = "An error occurred while fetching the content.";
+                    console.error(error);
+                });
 
-  // Function to apply blur and glow effects after 3.2 seconds
-  function applyEffects() {
-    loadingDiv.style.filter = "blur(8px) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))";
-  }
+            insertElement(); // Insert the new menu item with GIF animation
+        } else {
+            setTimeout(searchAndExecute, 1000); // Continue searching every 1 second
+        }
+    }
 
-  // Function to fade out the loading screen after 4 seconds
-  function fadeOutLoadingScreen() {
-    loadingDiv.style.opacity = "0";
-    setTimeout(() => {
-      // Remove the loading screen from the body once it's faded out
-      document.body.removeChild(loadingDiv);
-    }, 800); // 800ms matches the duration of the opacity transition
-  }
+    function insertElement() {
+        var targetElement = document.querySelector('.menuItem');
+        if (!targetElement) {
+            setTimeout(insertElement, 1000);
+            return;
+        }
 
-  // Apply effects after 3.2 seconds
-  setTimeout(applyEffects, 3200);
+        var newElement = document.createElement('div');
+        newElement.className = 'menuItem';
 
-  // Fade out the loading screen after 4 seconds
-  setTimeout(fadeOutLoadingScreen, 4000);
-}
+        newElement.innerHTML = `
+            <div class="menuItem">
+                <span class="menBtnIcn" style="color:#d747f5">
+                    <img src="https://raw.githubusercontent.com/musaalif6969/krunker/main/img-src/sidebar.gif" alt="GIF" style="transform: scale(1); transition: transform 0.3s;">
+                    <style>
+                        @keyframes rotateAnimation {
+                            0% {
+                                transform: scale(1) rotate(0deg);
+                            }
+                            100% {
+                                transform: scale(1.5) rotate(360deg);
+                            }
+                        }
 
-// Call the function to show the loading screen with a random image and apply effects
-showLoadingScreen();
+                        .menBtnIcn:hover img {
+                            animation: rotateAnimation 1s ease-in-out forwards;
+                        }
+                    </style>
+                </span>
+                <div class="menuItemTitle" id="menuBtnSocial">Oxygen</div>
+            </div>
+        `;
+
+        targetElement.parentNode.insertBefore(newElement, targetElement.nextSibling);
+
+        // Add click event listener to the added element
+        var gifElement = newElement.querySelector('.menBtnIcn img');
+        gifElement.addEventListener('click', function() {
+            var dialog = document.getElementById('dialogex');
+            if (dialog) {
+                if (dialog.style.display === 'none') {
+                    dialog.style.display = 'block'; // Show the element
+                } else {
+                    dialog.style.display = 'none'; // Hide the element
+                }
+            } else {
+                console.log('The element with id "dialogex" was not found.');
+            }
+        });
+    }
+
+    searchAndExecute();
+})();
+
