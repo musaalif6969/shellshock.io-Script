@@ -1,4 +1,4 @@
-<p class="box-text" style="font-size: 12px; color: #ffffff;">Status: Safe<img src="https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/img/stats.gif" alt="Image" style="display: inline-block; vertical-align: middle; margin-left: 5px; max-height: 20px;"></p>
+<p class="box-text" style="font-size: 12px; color: #ffffff;">EStatus: Safe<img src="https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/img/stats.gif" alt="Image" style="display: inline-block; vertical-align: middle; margin-left: 5px; max-height: 20px;"></p>
 <p class="box-text" style="font-size: 12px; text-align: right; right: 10px;">Version: 0.1</p>
 <div class="box-container">
     <p class="box-text1" style="font-size: 11px; color: #ffffff;">Made By Foch2803<br>Shellshock.io Adless Script</p>
@@ -12,63 +12,7 @@
     <a href="tg://resolve?domain=fochomocho">
         <img class="box-image-tg" src="https://raw.githubusercontent.com/musaalif6969/krunker/main/img-src/telegram.png" alt="Image">
     </a>
-    <div id="usercounterdiv">
     <p class="UserCounter">Online Users: Loading...</p>
-    <script type="module">
-      // Import Firebase SDK modules
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
-      import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
-
-      // Your Firebase project configuration
-      var firebaseConfig = {
-      apiKey: "AIzaSyDU2WRUxuLrUXOMX6fmJi3U8SdKHp_Qx0k",
-      authDomain: "countershell-shell.firebaseapp.com",
-      databaseURL: "https://countershell-shell-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "countershell-shell",
-      storageBucket: "countershell-shell.appspot.com",
-      messagingSenderId: "1050030424507",
-      appId: "1:1050030424507:web:d3922d937aae81da5cc49e",
-      measurementId: "G-DS94Z8TVHY"
-      };
-
-      // Initialize Firebase
-      const firebaseApp = initializeApp(firebaseConfig);
-      const db = getDatabase(firebaseApp);
-
-      // Get a reference to the Firebase database
-      var userCountRef = ref(db, "userCount");
-
-      // Function to increase user count
-      function incrementUserCount() {
-        runTransaction(userCountRef, (currentCount) => {
-          return (currentCount || 0) + 1;
-        });
-      }
-
-      // Function to decrease user count
-      function decrementUserCount() {
-        runTransaction(userCountRef, (currentCount) => {
-          return (currentCount || 1) - 1;
-        });
-      }
-
-      // Increment user count when the page loads
-      incrementUserCount();
-
-      // Decrement user count when the page is closed or reloaded
-      window.addEventListener("unload", function () {
-        decrementUserCount();
-      });
-
-      // Display the user count on the HTML page
-      var userCountDisplay = document.querySelector("#usercounterdiv .UserCounter");
-
-      onValue(userCountRef, (snapshot) => {
-        var userCount = snapshot.val();
-        userCountDisplay.textContent = "Online Users: " + userCount;
-      });
-    </script>
-  </div>
 </div>
 <a href="https://forms.gle/YX9NpbCDNs4sMdKCA" target="_blank" class="box-textuser" style="font-size: 10px;">Report Bug</a>
 
