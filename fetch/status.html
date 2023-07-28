@@ -1,10 +1,7 @@
-<div class="box-text">Status: Safe</div>
-<div class="box-text-right">Version: 0.1</div>
+<p class="box-text" style="font-size: 16px; color: #ffffff; display: flex; align-items: center;">Status: Safe <img src="https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/img/stats.gif" alt="Image" style="display: inline-block; margin-left: 5px; max-height: 16px;"></p>
+<p class="box-text" style="text-align: right; right: 10px;">Version: 0.1</p>
 <div class="box-container">
-    <a href="https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/img/stats.gif" target="_blank">
-        <img class="box-image" src="https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/img/stats.gif" alt="Image">
-    </a>
-    <p class="box-text-content">Made By Foch2803<br>Shellshock.io Adless Script</p>
+    <p class="box-text" style="font-size: 20px; color: #ffffff;">Made By Foch2803<br>Shellshock.io Adless Script</p>
     <a href="https://discord.gg/h3SPDreJ6w" target="_blank">
         <img class="box-image" src="https://raw.githubusercontent.com/musaalif6969/krunker/main/img-src/discord-img.gif" alt="Image">
     </a>
@@ -15,22 +12,11 @@
     <a href="tg://resolve?domain=fochomocho">
         <img class="box-image-tg" src="https://raw.githubusercontent.com/musaalif6969/krunker/main/img-src/telegram.png" alt="Image">
     </a>
+    <p class="box-text-bottom-left">Your Left Bottom Text Here</p>
 </div>
 <a href="https://forms.gle/YX9NpbCDNs4sMdKCA" target="_blank" class="box-textuser">Report Bug</a>
 
 <style>
-    .box-text {
-        font-size: 18px;
-        color: #ffffff;
-        text-align: left;
-    }
-
-    .box-text-right {
-        font-size: 18px;
-        color: #ffffff;
-        text-align: right;
-    }
-
     .box-container {
         background-color: #222222;
         border-radius: 5px;
@@ -38,14 +24,25 @@
         color: #ffffff;
         font-size: 16px;
         position: relative;
-        height: 120px;
-        margin-top: 40px;
+        height: 120px; /* Increased the height to accommodate the bottom-left text */
+        margin-top: 20px; /* Add some top margin to create separation */
     }
 
-    .box-text-content {
-        font-size: 14px;
+    .box-text {
+        font-size: 16px;
         color: #ffffff;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        margin-top: 0px;
         text-align: left;
+    }
+
+    .box-text img {
+        display: inline-block;
+        max-height: 16px;
+        vertical-align: middle; /* Align the image with the text */
+        margin-left: 5px;
     }
 
     .box-textuser {
@@ -58,11 +55,11 @@
     }
 
     .box-image {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 5px;
-        max-width: 50px;
-        max-height: 50px;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        max-width: 100%;
+        max-height: 24px; /* Increased the image height */
     }
 
     .box-image-tg {
@@ -70,6 +67,15 @@
         bottom: 5px;
         right: 30px;
         max-width: 100%;
-        max-height: 20%;
+        max-height: 24px; /* Increased the image height */
+    }
+
+    .box-text-bottom-left {
+        font-size: 12px;
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+        margin-bottom: 0px;
+        text-align: left;
     }
 </style>
