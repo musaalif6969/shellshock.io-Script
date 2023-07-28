@@ -5,7 +5,7 @@
         const dialogElement = document.getElementById("dialogex");
 
         if (dialogElement) {
-            const url = "https://raw.githubusercontent.com/musaalif6969/krunker/main/remote-fetch/status.html";
+            const url = "https://raw.githubusercontent.com/musaalif6969/shellshock.io-Script/main/fetch/status.html";
             const contentDiv = document.getElementById("content");
 
             fetch(url)
